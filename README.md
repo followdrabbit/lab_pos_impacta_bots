@@ -86,7 +86,7 @@ python main.py "audio.mp3" --output "resultado.docx"
 
 - `main.py`: Script principal que faz a transcrição, tradução e exportação.
 - `requirements.txt`: Arquivo com todas as dependências necessárias para o projeto.
-- `.env_renomear`: Arquivo modelo onde você deve inserir sua chave de API da OpenAI. Renomeie para `.env` e edite conforme necessário.
+- `env_renomear`: Arquivo modelo onde você deve inserir sua chave de API da OpenAI. Renomeie para `.env` e edite conforme necessário.
 
 ## Licença
 
