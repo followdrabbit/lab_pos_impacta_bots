@@ -45,11 +45,11 @@ pip install -r requirements.txt
 
 4 **Configuração do arquivo `.env`**:
 
-- No diretório do projeto, você encontrará um arquivo chamado `.env_renomear`.
+- No diretório do projeto, você encontrará um arquivo chamado `env_renomear`.
 - Renomeie esse arquivo para `.env`:
 
 ```bash
-mv .env_renomear .env  # Ou renomeie manualmente no Windows
+mv env_renomear .env  # Ou renomeie manualmente no Windows
 ```
 
 - Abra o arquivo `.env` e adicione sua chave de API da OpenAI na variável `OPENAI_API_KEY`:
