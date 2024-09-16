@@ -1,10 +1,10 @@
 # Transcrição e Tradução de Áudio com OpenAI Whisper
 
-Este projeto utiliza o modelo Whisper da OpenAI para transcrever arquivos de áudio e traduzi-los para o inglês. O fluxo completo começa com a conversão de um arquivo de texto para áudio utilizando a API **gTTS** (Google Text-to-Speech). O áudio gerado é enviado à OpenAI para ser transcrito e, posteriormente, traduzido para o inglês. O resultado é salvo em um arquivo Word (.docx).
+Este projeto utiliza o modelo Whisper da OpenAI para transcrever arquivos de áudio e traduzi-los para o inglês. O fluxo completo começa com a conversão de um arquivo de texto para áudio utilizando a API **OpenAI TTS**. O áudio gerado é enviado à OpenAI para ser transcrito e, posteriormente, traduzido para o inglês. O resultado é salvo em um arquivo Word (.docx).
 
 ## Funcionalidades
 
-- **Conversão de texto para áudio**: O texto fornecido é convertido em um arquivo de áudio `.mp3` utilizando a API gTTS.
+- **Conversão de texto para áudio**: O texto fornecido é convertido em um arquivo de áudio `.mp3` utilizando a API TTS da OpenAI.
 - **Transcrição de áudio**: O áudio gerado é transcrito no idioma original usando o modelo Whisper da OpenAI.
 - **Tradução para o inglês**: A transcrição é traduzida diretamente para o inglês (EN-US).
 - **Exportação para Word**: O resultado da transcrição e da tradução é exportado para um arquivo `.docx`.
@@ -14,8 +14,7 @@ Este projeto utiliza o modelo Whisper da OpenAI para transcrever arquivos de áu
 
 - **Python 3.6+**
 - **Chave de API da OpenAI**: Para utilizar a transcrição e tradução, é necessário gerar uma chave da API da OpenAI. O uso da API pode gerar custos, dependendo do volume de requisições. Para mais informações sobre como gerar sua chave da API, consulte o [post no blog da Asimov Academy](https://hub.asimov.academy/blog/openai-api/).
-- **gTTS**: Biblioteca para conversão de texto para áudio.
-- Pacotes Python listados em `requirements.txt`.
+- **Pacotes Python listados em `requirements.txt`**.
 
 ## Custos com a API
 
@@ -57,7 +56,7 @@ mv .env_renomear .env  # Ou renomeie manualmente no Windows
 - Abra o arquivo `.env` e adicione sua chave de API da OpenAI na variável `OPENAI_API_KEY`:
 
 ```bash
- OPENAI_API_KEY="SUA_CHAVE_DA_OPENAI_AQUI"
+OPENAI_API_KEY="SUA_CHAVE_DA_OPENAI_AQUI"
 ```
 
 ## Uso
@@ -71,19 +70,23 @@ python main.py -f "caminho/para/arquivo/texto.txt" -o "caminho/para/arquivo/audi
 - **-f, --file**: Caminho para o arquivo de texto de entrada.
 - **-o, --output_audio**: Caminho para o arquivo de áudio gerado (padrão: `output_audio.mp3`).
 - **-d, --output_docx**: Caminho para o arquivo de saída no formato `.docx` (padrão: `transcription_and_translation.docx`).
+- **--model**: Modelo de TTS da OpenAI a ser utilizado (padrão: `tts-1`).
+- **--voice**: Voz a ser usada para gerar o áudio (padrão: `alloy`).
+
+> Mais opções de vozes e formatos podem ser encontradas na [documentação da API da OpenAI](https://platform.openai.com/docs/api-reference/audio/createSpeech).
 
 ### Exemplo de uso
 
 ```bash
-python main.py -f "meutexto.txt" -o "meuaudio.mp3" -d "meuresultado.docx"
+python main.py -f "meutexto.txt" -o "meuaudio.mp3" -d "meuresultado.docx" --model "tts-1" --voice "nova"
 ```
 
 Esse comando:
 
-1 Lê o arquivo de texto `meutexto.txt`.
-2 Converte o texto em áudio e salva como `meuaudio.mp3`.
-3 Envia o áudio para a OpenAI para transcrição e tradução.
-4 Salva a transcrição e a tradução no arquivo Word `meuresultado.docx`.
+1. Lê o arquivo de texto `meutexto.txt`.
+2. Converte o texto em áudio e salva como `meuaudio.mp3`.
+3. Envia o áudio para a OpenAI para transcrição e tradução.
+4. Salva a transcrição e a tradução no arquivo Word `meuresultado.docx`.
 
 ## Output
 
